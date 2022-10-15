@@ -1,6 +1,7 @@
 package SoloLexico;
 
 public enum Tokens {
+//Antes de
     Int,
     Doble,
     Linea,
@@ -8,6 +9,8 @@ public enum Tokens {
     Cadena,
     Igual,
     Suma,
+    Char,
+    If,
     Resta,
     Multiplicacion,
     Division,
@@ -21,5 +24,35 @@ public enum Tokens {
     P_coma,
     Identificador,
     Numero,
-    ERROR
+    ERROR,
+    Include,
+    Define,
+    Break,
+    Case,
+    Const,
+    Continue,
+    Default,
+    Do,
+    Double,
+    Float,
+    For,
+    Else,
+    Long,
+    Register,
+    Return,
+    Short,
+    Unsigned,
+    Struct,
+    Switch,
+    Typedef,
+    Void,
+    While,
+    Printf,
+    Scanf,
+    Cin,
+    Cout,
+    Using,
+    Namespace,
+    Std,
+    String  
 }

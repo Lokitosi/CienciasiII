@@ -135,7 +135,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 return;
             }
             switch (token) {
-                case Linea:
+                 case Linea:
                     cont++;
                     resultado += "LINEA " + cont + "\n";
                     break;
@@ -145,9 +145,11 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Cadena:
                     resultado += "  <Tipo de dato>\t" + lexicos.lexemas + "\n";
                     break;
-
                 case Int:
                     resultado += "  <Reservada int>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Char:
+                    resultado += "  <Reservada char>\t" + lexicos.lexemas + "\n";
                     break;
                 case Igual:
                     resultado += "  <Operador igual>\t" + lexicos.lexemas + "\n";
@@ -185,6 +187,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Main:
                     resultado += "  <Reservada main>\t" + lexicos.lexemas + "\n";
                     break;
+                case If:
+                    resultado += "  <Reservada if>\t" + lexicos.lexemas + "\n";
+                    break;
                 case P_coma:
                     resultado += "  <Punto y coma>\t" + lexicos.lexemas + "\n";
                     break;
@@ -196,6 +201,98 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
+                    break;
+                    //Update Second section of tokens of the doccument
+                case Include:
+                    resultado += "  <Reservada include>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Define:
+                    resultado += "  <Reservada define>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Break:
+                    resultado += "  <Reservada break>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Case:
+                    resultado += "  <Reservada case>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Const:
+                    resultado += "  <Reservada const>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Continue:
+                    resultado += "  <Reservada continue>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Default:
+                    resultado += "  <Reservada default>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Do:
+                    resultado += "  <Reservada do>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Double:
+                    resultado += "  <Reservada double>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Float:
+                    resultado += "  <Reservada float>\t" + lexicos.lexemas + "\n";
+                    break;
+                case For:
+                    resultado += "  <Reservada for>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Else:
+                    resultado += "  <Reservada else>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Long:
+                    resultado += "  <Reservada long>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Register:
+                    resultado += "  <Reservada register>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Return:
+                    resultado += "  <Reservada return>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Short:
+                    resultado += "  <Reservada short>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Unsigned:
+                    resultado += "  <Reservada unsigned>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Struct:
+                    resultado += "  <Reservada struct>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Switch:
+                    resultado += "  <Reservada switch>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Typedef:
+                    resultado += "  <Reservada typedef>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Void:
+                    resultado += "  <Reservada void>\t" + lexicos.lexemas + "\n";
+                    break;
+                case While:
+                    resultado += "  <Reservada while>\t" + lexicos.lexemas + "\n";
+                    break;
+                //New Functions
+                case Printf:
+                    resultado += "  <Funcion printf>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Scanf:
+                    resultado += "  <Funcion scanf>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Cin:
+                    resultado += "  <Funcion cin>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Cout:
+                    resultado += "  <Funcion cout>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Using:
+                    resultado += "  <Funcion using>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Namespace:
+                    resultado += "  <Funcion namespace>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Std:
+                    resultado += "  <Funcion std>\t" + lexicos.lexemas + "\n";
+                    break;
+                case String:
+                    resultado += "  <Funcion string>\t" + lexicos.lexemas + "\n";
                     break;
                 default:
                     resultado += "  < " + lexicos.lexemas + " >\n";
