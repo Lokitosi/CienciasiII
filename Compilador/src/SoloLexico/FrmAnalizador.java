@@ -22,7 +22,7 @@ import javax.swing.JFileChooser;
 
 /**
  *
- * @author mdelgado
+ * @author mdelgado & Edison Gamba - Juan Duarte - Luis Lavado
  */
 public class FrmAnalizador extends javax.swing.JFrame {
 

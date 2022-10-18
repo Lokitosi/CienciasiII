@@ -12,8 +12,7 @@ import java.nio.file.Paths;
  */
 public class AnalizadorLexico {
     public static void main(String[] args) throws Exception {
-        String caminoJFLEX= "../SoloLexico_Basico/src/SoloLexico/Lexico.flex";
-
+        String caminoJFLEX= "../Compilador/src/SoloLexico/Lexico.flex";
         generarLex(caminoJFLEX);
     }
     public static void generarLex(String caminoJFLEX) throws IOException, Exception {
