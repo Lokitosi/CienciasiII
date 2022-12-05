@@ -1,0 +1,138 @@
+package properties;
+
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+}
+:};
+
+terminal Int, Byte, Char, Short, Long, Float, Double, Cadena,
+        Linea, Comillas,
+        Include, Define, Break, Const, Continue, Default, Register, Unsigned, Struct,
+        Switch, Case,
+        Typedef,
+        Printf, Scanf, Cin, Cout, Using, Namespace, Std, Void,
+        If, Else, Do, While, For,
+        Asignation, Add, Resta, Times, Divide, Module,
+        DoubleAnd, DoubleOr, Not, And, Or, GreatherThan, LessThan, Equal, NotEqual, GreaterEqualThan, LessEqualThan,
+        LeftShift, RightShift, PlusEqual, Increment, Decrement, MinusEqual, TimesEqual, DivideEqual, ModuleEqual,
+        True, False,
+        Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
+        Main, P_coma, Dos_P, Punto, Coma, Identificador, Numero, ERROR;
+
+non terminal INICIO, SENTENCIA, T_DATO, OPERADOR, OPERADOR_LOGICO,
+    OPERADOR_RELACIONAL, OPERADOR_CORRIMIENTO, OPERADOR_ATRIBUCION,
+    OPERADOR_UNARIO, DECLARACION, DECLARACION_FOR,
+    SENTENCIA_BOOLEANA, IF, IF_ELSE, FOR, DO_WHILE, SWITCH_CASE, SWITCH, WHILE, PRINTF;
+
+start with INICIO;
+
+INICIO ::= 
+    Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c
+;
+SENTENCIA ::= 
+    SENTENCIA DECLARACION |
+    DECLARACION |
+    SENTENCIA IF | 
+    IF |
+    SENTENCIA IF_ELSE |
+    IF_ELSE |
+    SENTENCIA FOR |
+    FOR |
+    SENTENCIA DO_WHILE |
+    DO_WHILE |
+    SENTENCIA SWITCH |
+    SWITCH |
+    SENTENCIA WHILE |
+    WHILE |
+    SENTENCIA PRINTF |
+    PRINTF
+;
+T_DATO ::=
+    Int | Byte | Char | Short | Long | Float | Double | Cadena
+;
+OPERADOR ::=
+    Asignation | Add | Resta | Times | Divide | Module
+;
+OPERADOR_LOGICO ::=
+    DoubleAnd | DoubleOr | Not | And | Or
+;
+OPERADOR_RELACIONAL ::=
+    GreatherThan | LessThan | Equal | NotEqual | GreaterEqualThan | LessEqualThan
+;
+OPERADOR_CORRIMIENTO ::=
+    LeftShift | RightShift
+;
+OPERADOR_ATRIBUCION ::=
+    PlusEqual | MinusEqual | TimesEqual | DivideEqual | ModuleEqual
+;   
+OPERADOR_UNARIO ::=
+    Increment | Decrement
+;
+DECLARACION ::=
+    Identificador OPERADOR_UNARIO |
+    Identificador OPERADOR_UNARIO P_coma |
+    Identificador OPERADOR_ATRIBUCION Numero P_coma |
+    Identificador OPERADOR_ATRIBUCION Identificador P_coma |
+    Identificador Asignation Numero P_coma |
+    Identificador Asignation Identificador P_coma |
+    Identificador Asignation Comillas Comillas P_coma |
+    Identificador Asignation Comillas Identificador Comillas P_coma |
+    T_DATO Identificador OPERADOR_ATRIBUCION Numero P_coma |
+    T_DATO Identificador OPERADOR_ATRIBUCION Identificador P_coma |
+    T_DATO Identificador P_coma |
+    T_DATO Identificador Asignation Numero P_coma |
+    T_DATO Identificador Asignation Identificador P_coma |
+    T_DATO Identificador Asignation Comillas Comillas P_coma |
+    T_DATO Identificador Asignation Comillas Identificador Comillas P_coma
+;
+DECLARACION_FOR ::=
+    T_DATO Identificador Asignation Numero|
+    Identificador
+;
+SENTENCIA_BOOLEANA ::=
+    True |
+    False |
+    Identificador OPERADOR_RELACIONAL Comillas Comillas |
+    Identificador OPERADOR_RELACIONAL Comillas Identificador Comillas |
+    Identificador OPERADOR_RELACIONAL Identificador |
+    Identificador OPERADOR_RELACIONAL Numero |
+    Numero OPERADOR_RELACIONAL Identificador |
+    Numero OPERADOR_RELACIONAL Numero
+;
+IF ::= 
+    If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
+;
+IF_ELSE ::=
+    IF Else Llave_a SENTENCIA Llave_c
+;
+FOR ::=
+    For Parent_a DECLARACION_FOR P_coma SENTENCIA_BOOLEANA P_coma DECLARACION Parent_c Llave_a SENTENCIA Llave_c
+;
+DO_WHILE ::=
+    Do Llave_a SENTENCIA Llave_c While Parent_a SENTENCIA_BOOLEANA Parent_c P_coma
+;
+SWITCH_CASE ::=
+    Case Identificador Dos_P SENTENCIA |
+    Case Identificador Dos_P SENTENCIA SWITCH_CASE
+;
+SWITCH ::=
+    Switch Parent_a Identificador Parent_c Llave_a SWITCH_CASE Default Dos_P SENTENCIA Llave_c
+;   
+WHILE ::=
+    While Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
+;
+PRINTF ::=
+    Printf Parent_a Identificador Parent_c P_coma |
+    Printf Parent_a Comillas Identificador Comillas Parent_c P_coma
+;
