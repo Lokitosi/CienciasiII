@@ -17,10 +17,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_cup.runtime.Symbol;
 import javax.swing.JFileChooser;
+import util.Util;
 
 /**
  *
@@ -44,7 +46,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BotonAnalisis = new javax.swing.JButton();
+        btnAssembler = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Resultado = new javax.swing.JTextArea();
         BotonSintactico = new javax.swing.JButton();
@@ -55,14 +57,24 @@ public class FrmAnalizador extends javax.swing.JFrame {
         txtAnalizarSin = new javax.swing.JTextArea();
         Borrar1 = new javax.swing.JButton();
         Borrar2 = new javax.swing.JButton();
+        BotonAnalisis1 = new javax.swing.JButton();
+        btnObject = new javax.swing.JButton();
+        btnBinnaryCode = new javax.swing.JButton();
+        btnExecute = new javax.swing.JButton();
+        btnMiddleCode = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        executeCode = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BotonAnalisis.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        BotonAnalisis.setText("Análisis Léxico");
-        BotonAnalisis.addActionListener(new java.awt.event.ActionListener() {
+        btnAssembler.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnAssembler.setText("Generar Ensamblador");
+        btnAssembler.setEnabled(false);
+        btnAssembler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAnalisisActionPerformed(evt);
+                btnAssemblerActionPerformed(evt);
             }
         });
 
@@ -112,6 +124,59 @@ public class FrmAnalizador extends javax.swing.JFrame {
             }
         });
 
+        BotonAnalisis1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        BotonAnalisis1.setText("Análisis Léxico");
+        BotonAnalisis1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAnalisis1ActionPerformed(evt);
+            }
+        });
+
+        btnObject.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnObject.setEnabled(false);
+        btnObject.setLabel("Generar Objeto");
+        btnObject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObjectActionPerformed(evt);
+            }
+        });
+
+        btnBinnaryCode.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnBinnaryCode.setText("Generar Ejecutable");
+        btnBinnaryCode.setEnabled(false);
+        btnBinnaryCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBinnaryCodeActionPerformed(evt);
+            }
+        });
+
+        btnExecute.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnExecute.setText("Ejecutar codigo");
+        btnExecute.setEnabled(false);
+        btnExecute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExecuteActionPerformed(evt);
+            }
+        });
+
+        btnMiddleCode.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnMiddleCode.setText("Generar Intermedio");
+        btnMiddleCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMiddleCodeActionPerformed(evt);
+            }
+        });
+
+        executeCode.setColumns(20);
+        executeCode.setRows(5);
+        jScrollPane4.setViewportView(executeCode);
+
+        jLabel1.setFont(new java.awt.Font("San Francisco Display", 1, 24)); // NOI18N
+        jLabel1.setText("Output");
+
+        jLabel2.setFont(new java.awt.Font("San Francisco Display", 1, 24)); // NOI18N
+        jLabel2.setText("Generadores de codigo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,26 +184,36 @@ public class FrmAnalizador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BotonAnalisis)
-                        .addGap(18, 18, 18)
-                        .addComponent(Borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(BotonSintactico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Borrar2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BotonSintactico, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(Borrar2, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                        .addGap(307, 307, 307))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(74, 74, 74)
+                                    .addComponent(BotonAnalisis1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(83, 83, 83)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAssembler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnObject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMiddleCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBinnaryCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExecute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(113, 113, 113))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,17 +221,37 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BotonAnalisis)
                         .addComponent(Borrar1)
-                        .addComponent(BotonSintactico, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Borrar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BotonAnalisis1)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Borrar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotonSintactico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMiddleCode)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAssembler)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnObject)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBinnaryCode)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExecute)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -409,13 +504,12 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
     }
 
-    private void BotonAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnalisisActionPerformed
-        try {
-            analizarLexico();
-        } catch (IOException ex) {
-            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+    private void btnAssemblerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssemblerActionPerformed
+       int response = Util.executeFile("ensamblador");
+        if (response == 0) {
+            btnObject.setEnabled(true);
         }
-    }//GEN-LAST:event_BotonAnalisisActionPerformed
+    }//GEN-LAST:event_btnAssemblerActionPerformed
 
     private void Borrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Borrar2ActionPerformed
         txtAnalizarSin.setText(null);
@@ -456,6 +550,53 @@ public class FrmAnalizador extends javax.swing.JFrame {
         txtAnalizarLex.setText(null);
     }//GEN-LAST:event_Borrar1ActionPerformed
 
+    private void BotonAnalisis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnalisis1ActionPerformed
+       try {
+            txtAnalizarLex.setForeground(Color.BLACK);
+            analizarLexico();
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BotonAnalisis1ActionPerformed
+
+    private void btnObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObjectActionPerformed
+        int response = Util.executeFile("objeto");
+        if (response == 0) {
+            btnBinnaryCode.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnObjectActionPerformed
+
+    private void btnBinnaryCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBinnaryCodeActionPerformed
+        int response = Util.executeFile("binario");
+        if (response == 0) {
+            btnExecute.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnBinnaryCodeActionPerformed
+
+    private void btnExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecuteActionPerformed
+        Util.executeFile("ejecutar");
+        if (!Objects.equals(System.getProperty("os.name"), "Linux")) {
+            Util.readOutput();
+        };
+        executeCode.setText(Util.result);
+    }//GEN-LAST:event_btnExecuteActionPerformed
+
+    private void btnMiddleCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiddleCodeActionPerformed
+        Util.clearCacheData();
+        Util.createFile(Resultado.getText());
+        btnAssembler.setEnabled(false);
+        btnObject.setEnabled(false);
+        btnBinnaryCode.setEnabled(false);
+        btnExecute.setEnabled(false);
+        repaint();
+        int response = Util.executeFile("intermedio");
+        if (response == 0) {
+            btnAssembler.setEnabled(true);
+        } else {
+
+        }
+    }//GEN-LAST:event_btnMiddleCodeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -494,13 +635,22 @@ public class FrmAnalizador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Borrar1;
     private javax.swing.JButton Borrar2;
-    private javax.swing.JButton BotonAnalisis;
+    private javax.swing.JButton BotonAnalisis1;
     private javax.swing.JButton BotonSintactico;
     private javax.swing.JTextArea Resultado;
     private javax.swing.JButton btnArchivo;
+    private javax.swing.JButton btnAssembler;
+    private javax.swing.JButton btnBinnaryCode;
+    private javax.swing.JButton btnExecute;
+    private javax.swing.JButton btnMiddleCode;
+    private javax.swing.JButton btnObject;
+    private javax.swing.JTextArea executeCode;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea txtAnalizarLex;
     private javax.swing.JTextArea txtAnalizarSin;
     // End of variables declaration//GEN-END:variables

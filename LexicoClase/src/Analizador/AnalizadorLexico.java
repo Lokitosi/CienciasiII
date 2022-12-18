@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 /**
  *
- * @author mdelgado
+ * @author Loki
  */
 public class AnalizadorLexico {
     

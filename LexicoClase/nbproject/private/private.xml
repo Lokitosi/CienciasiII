@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/vista/FrmAnalizador.java</file>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/properties/Sintaxis.java</file>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/util/Constants.java</file>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/properties/LexicoCup.flex</file>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/properties/Sintaxis.cup</file>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/Analizador/AnalizadorLexico.java</file>
-            <file>file:/home/loki/Documents/Code/LexicoClase/src/properties/Lexico.flex</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/util/Constants.java</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/properties/LexicoCup.flex</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/properties/Sintaxis.cup</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/properties/LexemasAnalyzer.java</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/properties/Lexico.flex</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/vista/FrmAnalizador.java</file>
+            <file>file:/home/loki/Documents/Code/CienciasiII/LexicoClase/src/Analizador/AnalizadorLexico.java</file>
         </group>
     </open-files>
 </project-private>
